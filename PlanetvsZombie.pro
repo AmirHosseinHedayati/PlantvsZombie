@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,13 +16,40 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    Bullet.cpp \
+    Button.cpp \
+    Cherrybomb.cpp \
+    Controller.cpp \
+    Plant.cpp \
+    Potatoplant.cpp \
+    Score.cpp \
+    Shootingplant.cpp \
+    Sun.cpp \
+    Sun2.cpp \
+    Sunplant.cpp \
+    View.cpp \
+    Zombie.cpp \
+    main.cpp
 
 HEADERS += \
-    mainwindow.h
+    Bullet.h \
+    Button.h \
+    Cherrybomb.h \
+    Controller.h \
+    Plant.h \
+    Potatoplant.h \
+    Score.h \
+    Shootingplant.h \
+    Sun.h \
+    Sun2.h \
+    Sunplant.h \
+    View.h \
+    Zombie.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
