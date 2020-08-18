@@ -2,10 +2,30 @@
 #define SHOOTINGPLANT_H
 
 
-class ShootingPlant
+#include <QGraphicsPixmapItem>
+#include <QGraphicsItem>
+#include "Plant.h"
+#include <QMediaPlayer>
+#include <QTimer>
+#include <QList>
+
+class ShootingPlant : public QObject, public Plant
 {
+    Q_OBJECT
 public:
-    ShootingPlant();
+    explicit ShootingPlant(QTimer *shootTimer, QGraphicsItem *parent = nullptr);
+
+private:
+    int timeInterval;
+    int timeIntervals;
+    int currentPic;
+    QMediaPlayer *musicPlayer;
+    QTimer *shootingTimer;
+    QList <QPixmap> shootingPlantList;
+
+public slots:
+    void shoot();
+    void switchPic();
 };
 
-#endif // SHOOTINGPLANT_H
+#endif // SHOOTINGPLANET_H
