@@ -1,16 +1,23 @@
 #ifndef SCORE_H
 #define SCORE_H
 
+#include<QGraphicsTextItem>
+#include<QMediaPlayer>
 
-class Score : public QWidget
+class Score : public QGraphicsTextItem
 {
-    Q_OBJECT
+    friend class Sun;
+    friend class Sun2;
 public:
-    explicit Score(QWidget *parent = nullptr);
+    explicit Score(QGraphicsItem *parent);
+    ~Score();
+    void increment();
+    void decreaseShooitngPlanet();
+    int getScore();
 
-signals:
-
-public slots:
+private:
+     int score;
+     QMediaPlayer *musicPlayer;
 };
 
 #endif // SCORE_H
