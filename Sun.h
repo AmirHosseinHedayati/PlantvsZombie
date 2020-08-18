@@ -5,21 +5,30 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
+#include <QMediaPlayer>
 #include "Score.h"
+#include <QTimer>
+
 class Sun : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
+
 public:
-    explicit Sun();
-    QTimer *sunTimer;
-    QTimer *sunDestroyTimer;
+    Sun(QGraphicsScene *scene, Score *score, QGraphicsItem *parent ,
+        QTimer *timer);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    Score *score;
+
+private:
+    QTimer *sunDestroyTimer;
+    QGraphicsScene *sunScene;
+    Score *sunScore;
+    int timeIntervals;
+
 public slots:
     void moveToDown();
-    void destroySun();
 
 };
 
